@@ -1,26 +1,30 @@
 #include<bits/stdc++.h>
 using namespace std;
-typedef long int ll;
-string str;
-ll n,len;
 void solution(string str){
-    n=(ll)str.length();
-    stack<char> s;
-    len=0;
-    for(ll i=0;i<n;i++){
-        
+    int n=(int)str.length();
+    int count=0;
+    int len=0;
+    for(int i=0;i<n;i++){
+        if(str[i]=='>' && count<=0){
+            break;
+        }
+        else if(str[i]=='<'){
+            count++;
+        }
+        else{
+            count--;
+            if(count==0){
+                len=i+1;
+            }
+        }
     }
-    if(!s.empty()){
-        cout<<0;
-    }
-    else{
-        cout<<len;
-    }
+    cout<<len;
 }
 int main(){
-    ll t;
+    int t;
     cin>>t;
     while(t--){
+        string str;
         cin>>str;
         solution(str);
         cout<<endl;
