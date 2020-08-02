@@ -8,18 +8,7 @@ void solution(string str){
     stack<char> s;
     len=0;
     for(ll i=0;i<n;i++){
-        if(str[i]=='<'){
-            s.push(str[i]);
-        }
-        else{
-            if(s.empty() && str[i]=='>'){
-                break;
-            }
-            else{
-                s.pop();
-                len=i+1;
-            }
-        }
+        
     }
     if(!s.empty()){
         cout<<0;
